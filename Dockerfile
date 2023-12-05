@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:18
 
 WORKDIR /app
 
@@ -8,6 +8,10 @@ RUN npm install --production
 
 COPY . .
 
-EXPOSE 8080
+RUN npm install express
+
+RUN npm install socket.io@3.1.1
+
+EXPOSE 3000
 
 CMD ["npm", "start"]
